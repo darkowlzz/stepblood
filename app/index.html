@@ -7,7 +7,11 @@
   <body ng-controller="searchCtrl">
     <form ng-submit="search()">
       <input type="text" ng-model="keyword" size="30"
-             placeholder="Search something">
+        placeholder="Search by name">
+      <span>Group:</span>
+      <select ng-model="selectedGroup"
+        ng-options="opt as opt.label for opt in groups">
+      </select>
       <input type="submit" value="Search">
       <hr>
     </form>
@@ -15,12 +19,12 @@
     <div ng-repeat="result in results">
       <div>
       <span>Name: {{result.Name}}</span><br>
-      <span>Blood Group: {{result['Blood Group']}}</span><br>
-      <span>Contact No.: {{result['Contact No.']}}</span>
+      <span>Blood Group: {{result.Group}}</span><br>
       <hr>
       </div>
     </div>
 
+    <script src="bower_components/lodash/lodash.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="js/bloodbank.js"></script>
   </body>
