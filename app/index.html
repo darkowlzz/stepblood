@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" ng-app="bloodbank">
+  <head>
+    <meta charset="utf-8">
+  </head>
+
+  <body ng-controller="searchCtrl">
+    <form ng-submit="search()">
+      <input type="text" ng-model="keyword" size="30"
+             placeholder="Search something">
+      <input type="submit" value="Search">
+      <hr>
+    </form>
+
+    <div ng-repeat="result in results">
+      <div>
+      <span>Name: {{result.Name}}</span><br>
+      <span>Blood Group: {{result['Blood Group']}}</span><br>
+      <span>Contact No.: {{result['Contact No.']}}</span>
+      <hr>
+      </div>
+    </div>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="js/bloodbank.js"></script>
+  </body>
+</html>
