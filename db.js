@@ -1,4 +1,8 @@
-var dbToken = process.env.dbToken || require('./config').token;
+try {
+  var dbToken = process.env.dbToken || require('./config').token;
+} catch (e) {
+  console.log(e);
+}
 var Q = require('q');
 var db = require('orchestrate')(dbToken);
 
